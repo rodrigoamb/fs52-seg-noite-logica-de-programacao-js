@@ -105,34 +105,34 @@ console.log("--------------------------");
 
 // crie uma função que recebe um array de objetos. Esses objetos possui "nome" e "estoque" de carros no pátio da concessionária. Usando a função, mostre no console o nome dos carros e a quantidade de estoque deles.
 
-const carros = [
-  {
-    nome: "Corolla",
-    estoque: 4,
-  },
-  {
-    nome: "Civic",
-    estoque: 7,
-  },
-  {
-    nome: "Hr-v",
-    estoque: 3,
-  },
-];
+// const carros = [
+//   {
+//     nome: "Corolla",
+//     estoque: 4,
+//   },
+//   {
+//     nome: "Civic",
+//     estoque: 7,
+//   },
+//   {
+//     nome: "Hr-v",
+//     estoque: 3,
+//   },
+// ];
 
-function mostraEstoque(carrosLista) {
-  console.log(
-    `Nome do carro: ${carrosLista[0].nome} -  Estoque: ${carrosLista[0].estoque} `
-  );
-  console.log(
-    `Nome do carro: ${carrosLista[1].nome} -  Estoque: ${carrosLista[1].estoque} `
-  );
-  console.log(
-    `Nome do carro: ${carrosLista[2].nome} -  Estoque: ${carrosLista[2].estoque} `
-  );
-}
+// function mostraEstoque(carrosLista) {
+//   console.log(
+//     `Nome do carro: ${carrosLista[0].nome} -  Estoque: ${carrosLista[0].estoque} `
+//   );
+//   console.log(
+//     `Nome do carro: ${carrosLista[1].nome} -  Estoque: ${carrosLista[1].estoque} `
+//   );
+//   console.log(
+//     `Nome do carro: ${carrosLista[2].nome} -  Estoque: ${carrosLista[2].estoque} `
+//   );
+// }
 
-mostraEstoque(carros);
+// mostraEstoque(carros);
 
 // Uma concessionária deseja criar um pequeno sistema de controle de vendas usando JavaScript.
 // O objetivo é registrar os carros disponíveis em estoque e permitir registrar cada venda feita por um cliente, atualizando automaticamente o número de unidades restantes.
@@ -150,3 +150,32 @@ mostraEstoque(carros);
 // 	•	Mostre no console a mensagem(usando template string):
 // Cliente: Rodrigo - Venda: 3 Civic
 // 4.	Após a execução da função, exiba no console o array atualizado, mostrando o novo estoque de cada carro.
+
+const carros = [
+  {
+    nome: "Corolla",
+    estoque: 4,
+  },
+  {
+    nome: "Civic",
+    estoque: 7,
+  },
+  {
+    nome: "Hr-v",
+    estoque: 3,
+  },
+];
+
+function venda(nomeCliente, index, quantidade) {
+  carros[index].estoque = carros[index].estoque - quantidade;
+
+  console.log(
+    `Cliente: ${nomeCliente} - Venda: ${quantidade} ${carros[index].nome}`
+  );
+}
+
+venda("Ana Maria", 0, 1);
+venda("Marcio", 0, 2);
+venda("Rodrigo", 2, 2);
+
+console.log(carros);
