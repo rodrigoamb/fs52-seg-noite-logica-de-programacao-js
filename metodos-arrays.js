@@ -61,3 +61,22 @@ const carros = ["Hr-v", "corolla", "civic", "Fusca", "Gol", "Polo", "City"];
 const novosCarros = carros.slice(3, 6);
 console.log(novosCarros);
 console.log(carros);
+
+// -------- métodos avançados de arrays -------------
+
+//map() - itera sobre os itens array e cria um novo array aplicando uma função para cada elemento.
+
+// quando uma função é passada por parâmetro por outra função, chamamos de função de callback
+
+const estoqueCarros = carros.map((item, idx) => {
+  return {
+    modelo: item,
+    estoque: 10,
+  };
+});
+
+console.log(estoqueCarros);
+
+// Desafio :
+
+//crie uma função chamada vendaDeCarro que recebe dois parâmetros, nome do modelo e numero de quantos carros foram vendidos, execute algumas vendas
