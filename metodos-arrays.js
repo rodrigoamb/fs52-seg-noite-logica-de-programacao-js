@@ -75,8 +75,24 @@ const estoqueCarros = carros.map((item, idx) => {
   };
 });
 
-console.log(estoqueCarros);
-
 // Desafio :
 
 //crie uma função chamada vendaDeCarro que recebe dois parâmetros, nome do modelo e numero de quantos carros foram vendidos, execute algumas vendas
+
+function vendaDeCarro(modelo, qntVenda) {
+  const novaVenda = estoqueCarros.map((item) => {
+    if (item.modelo === modelo) {
+      item.estoque = item.estoque - qntVenda;
+    }
+
+    return item;
+  });
+
+  return novaVenda;
+}
+
+const venda1 = vendaDeCarro("civic", 3);
+
+console.log(venda1);
+
+const venda2 = vendaDeCarro("Fusca", 5);
