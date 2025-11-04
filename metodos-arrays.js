@@ -166,6 +166,19 @@ console.log(positivos2);
 // exercicios:
 
 //1) Criar um array com alguns nomes e adicionar um novo nome no meio do array
+const nomes = ["João", "Maria", "Pedro"];
+nomes.splice(1, 0, "Ana");
+console.log(nomes);
 //2) Remover o primeiro nome do array
+nomes.shift();
+console.log(nomes);
 //3) Criar um array de números e triplicar os valores dele
+const numerosLista = [1, 2, 3, 4, 5];
+const numerosTriplicados = numerosLista.map((item) => {
+  return item * 3;
+});
+console.log(numerosTriplicados);
 //4) Criar um array de notas e retornar apenas as notas acima de 7
+const notas = [5, 8, 6, 9, 7];
+const notasAltas = notas.filter((item) => item > 7);
+console.log(notasAltas);
