@@ -116,7 +116,7 @@ const myCar = {
   hodometro: 0,
 
   dirigir: function (km) {
-    myCar.hodometro = myCar.hodometro + km;
+    this.hodometro = this.hodometro + km;
   },
 };
 console.log("antes da viagem:", myCar);
@@ -362,11 +362,22 @@ class Aluno {
 
 const aluno1 = new Aluno("Julia", 8, 9);
 console.log(aluno1.mostrarInfo());
-console.log("M�dia:", aluno1.calcularMedia());
+console.log("Média:", aluno1.calcularMedia());
 console.log(aluno1.verificarAprovacao());
 
 const aluno2 = new Aluno("Roberto", 5, 6);
 console.log(aluno2.verificarAprovacao());
+
+const aluno3 = new Aluno("Rodrigo", 7, 6);
+
+const alunosEscola = [aluno1, aluno2, aluno3];
+
+alunosEscola.forEach((item, index) => {
+  return console.log(
+    `Aluno ${index + 1}: ${item.nome} tem média:`,
+    item.calcularMedia()
+  );
+});
 
 // ============================================
 // EXERC�CIOS PR�TICOS
@@ -377,7 +388,7 @@ console.log("EXERC�CIOS PR�TICOS");
 console.log("=".repeat(50));
 
 /*
-EXERC�CIO 1: Criando um Objeto Simples
+EXERCICIO 1: Criando um Objeto Simples
 Crie um objeto chamado 'filme' com as propriedades:
 - titulo
 - diretor
@@ -759,3 +770,56 @@ console.log(`
 console.log("=".repeat(50));
 console.log("FIM DA AULA - BOM ESTUDO! =�");
 console.log("=".repeat(50));
+
+//exercicio de sala:
+
+//criar um objeto lapiseira usando uma class. A lapiseira além das suas propriedades, terá métodos: trocarGrafite(), escrever(), apagar()
+
+// eu quero escrever no papel e depois apagar o que eu escrevi. Lembrando que não tem grafite dentro da lapiseira.
+
+class Lapiseira {
+  constructor(marca, grafite, quantidade, escrita, temBorracha) {
+    this.marca = marca;
+    this.grafite = grafite;
+    this.quantidade = quantidade;
+    this.escrita = escrita;
+    this.temBorracha = temBorracha;
+  }
+
+  trocarGrafite(grafite, quantidade) {
+    if (grafite !== this.grafite) {
+      console.log("Coloque um grafite incompatível");
+      return;
+    } else {
+      this.quantidade += quantidade;
+    }
+  }
+
+  escrever(texto) {
+    if (this.quantidade > 0) {
+      this.escrita = texto;
+    } else {
+      console.log("Adicione um grafite");
+      return;
+    }
+  }
+
+  apagar() {
+    if (this.temBorracha && this.escrita) {
+      this.escrita = "";
+    } else {
+      console.log("nada para apagar ou nao tem borracha");
+      return;
+    }
+  }
+}
+const minhaLapiseira = new Lapiseira("Compactor", 0.7, 0, "", true);
+
+console.log(minhaLapiseira);
+
+minhaLapiseira.trocarGrafite(0.7, 2);
+console.log(minhaLapiseira);
+minhaLapiseira.escrever("Rodrigo Medeiros");
+console.log(minhaLapiseira);
+minhaLapiseira.apagar();
+console.log(minhaLapiseira);
