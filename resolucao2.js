@@ -112,3 +112,110 @@ console.log(typeof meuNull); //bug historico do JS
 // - "Aprovado" se a nota for maior ou igual a 7
 
 // Use `if/else if/else`.
+
+console.log("==== Resolução exercício 08 ====");
+
+function classicaNota(nota) {
+  if (nota < 5) {
+    return "reprovado";
+  } else if (nota >= 5 && nota < 7) {
+    return "recuperação";
+  } else {
+    return "aprovado";
+  }
+}
+
+console.log(classicaNota(3)); // reprovado
+console.log(classicaNota(5)); // recuperação
+console.log(classicaNota(7)); // aprovado
+console.log(classicaNota(9)); // aprovado
+
+// **Exercício 9 - Calculadora de Desconto**
+// Crie uma função que receba o valor de uma compra e retorne o valor com desconto:
+// - Compras acima de R$ 500: 15% de desconto
+// - Compras entre R$ 200 e R$ 500: 10% de desconto
+// - Compras abaixo de R$ 200: sem desconto
+
+// A função deve retornar o valor final.
+
+console.log("==== Resolução exercício 09 ====");
+
+function calculaDesconto(valorCompra) {
+  let desconto = 0;
+
+  if (valorCompra > 500) {
+    desconto = 0.15;
+  } else if (valorCompra >= 200) {
+    desconto = 0.1;
+  }
+
+  const valorDesconto = valorCompra * desconto;
+
+  const valorFinal = valorCompra - valorDesconto;
+
+  return valorFinal;
+}
+
+console.log(`R$ ${calculaDesconto(700).toFixed(2)}`);
+console.log(calculaDesconto(400).toFixed(2));
+console.log(calculaDesconto(250).toFixed(2));
+console.log(calculaDesconto(100).toFixed(2));
+
+// **Exercício 10 - Manipulação Básica de Arrays**
+// Crie um array com 5 frutas. Em seguida:
+// - Adicione uma fruta no final
+// - Adicione uma fruta no início
+// - Remova a última fruta
+// - Exiba o tamanho do array
+// - Exiba a fruta na posição 2
+
+console.log("==== Resolução exercício 10 ====");
+
+let frutas = ["maçã", "banana", "laranja", "uva", "manga"];
+
+//adicionar no final
+frutas.push("abacaxi");
+//adicionar no inicio
+frutas.unshift("morango");
+//remove o ultimo
+frutas.pop();
+//tamanho do array
+console.log(frutas.length);
+// acessando o indice 2
+console.log(frutas[2]);
+
+// **Exercício 11 - Buscando no Array**
+// Crie um array com os números de 1 a 10. Crie uma função que receba um número e verifique se ele existe no array, retornando `true` ou `false`. Use o método `includes()`.
+
+console.log("==== Resolução exercício 11 ====");
+
+const listaNumeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+function verificaNumero(numero) {
+  return listaNumeros.includes(numero);
+}
+
+console.log(`numero 5 existe? ${verificaNumero(5)}`);
+console.log(`numero 10 existe? ${verificaNumero(10)}`);
+console.log(`numero 15 existe? ${verificaNumero(15)}`);
+
+// **Exercício 12 - Somador de Array**
+// Crie uma função que receba um array de números e use um loop `for` para calcular e retornar a soma de todos os elementos.
+
+console.log("==== Resolução exercício 12 ====");
+
+function somaItensArray(array) {
+  let soma = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    soma = soma + array[i];
+  }
+
+  return soma;
+}
+
+let arrNumeros = [10, 20, 30, 40, 50];
+
+//pesquisem sobre o metodo reduce()
+
+console.log(somaItensArray(arrNumeros));
